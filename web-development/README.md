@@ -108,12 +108,8 @@ _强调_
 {% hint style="info" %}
 长点长点
 
-
-
 ### 撒点长点
 {% endhint %}
-
-[XXXX](#jump)
 
 $$
 a = b
@@ -164,8 +160,7 @@ id信息
 | 1 | cg | ghfjjgh |
 | 2 | ert | asefasf |
 
-<span id="jump">Hello World</span>
-
 {% page-ref page="../dockerfile/" %}
 
 ![](../.gitbook/assets/198109742591463b0b7396936.jpg)
+
