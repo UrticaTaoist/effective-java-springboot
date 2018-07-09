@@ -9,7 +9,7 @@ CORS（跨域资源共享），这是由W3C提出的。
 1.控制器CORS配置：  
 你可以@RequestMapping所拦截的方法上添加@CrossOrigin，默认情况下允许所有源和方法。
 
-```text
+```java
 @RestController
 @RequestMapping("/account")
 public class AccountController {
@@ -29,7 +29,7 @@ public class AccountController {
 
 也可以为整个Controller启用CORS
 
-```text
+```java
 @CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RestController
 @RequestMapping("/account")
@@ -37,7 +37,7 @@ public class AccountController {
 
 也可以组合配置
 
-```text
+```java
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/account")
@@ -56,7 +56,7 @@ public class AccountController {
 
 为整个应用程序启用CORS
 
-```text
+```java
 @Configuration
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -70,7 +70,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 如果是使用了SpringBoot，则可以这样使用
 
-```text
+```java
 @Configuration
 public class MyConfiguration {
 
@@ -88,7 +88,7 @@ public class MyConfiguration {
 
 也可以定制配置
 
-```text
+```java
 @Override
 public void addCorsMappings(CorsRegistry registry) {
 	registry.addMapping("/api/**")
@@ -103,7 +103,7 @@ public void addCorsMappings(CorsRegistry registry) {
 3.基于过滤器的CORS  
  Spring Framework还提供了[CorsFilter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/filter/CorsFilter.html)
 
-```text
+```java
 @Configuration
 public class MyConfiguration {
 
