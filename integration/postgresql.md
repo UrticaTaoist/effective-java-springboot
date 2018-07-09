@@ -240,7 +240,8 @@ public class JsonbType implements UserType, ParameterizedType {
 }
 ```
 
-这一段是为了自定义了JsonB的处理类，基本的逻辑就是将从数据库中返回的Json串转化为对象。
+这一段是为了自定义了JsonB的处理类，基本的逻辑就是将从数据库中返回的Json串转化为对象。  
+注释部分是因为SpringBoot1.X和2.X不兼容，导致部分函数需要修改。
 
 ### 4.配置list类型
 
@@ -359,4 +360,30 @@ private List<String> cite;
 ```
 
 这里使用了@Convert来转化list，配合上面自定义的ListString2JsonConverter，就可以用了，至于为什么，暂时还不知道，网上查的。
+
+### 7.一些SQL操作
+
+刚才说自行搜索是因为这个项目里没写这些，但想了想还是找一下吧，当做记录了，随便找来一个充个数。
+
+```text
+public interface BookRepository extends JpaRepository<BookEntity, UUID> {
+
+    @Query("SELECT DISTINCT b.publisher FROM BookEntity b WHERE UPPER(b.publisher) LIKE UPPER(CONCAT('%', ?1, '%'))")
+    List<String> findDistinctPublisher(String publisher);
+
+    @Query(value = "SELECT * FROM example_jsonb.books b WHERE b.author->>'firstName' ILIKE CONCAT('%', ?1, '%')", nativeQuery = true)
+    List<BookEntity> findByAuthorFirstName(String firstName);
+
+    @Query(value = "SELECT * FROM example_jsonb.books b WHERE b.author->>'lastName' ILIKE CONCAT('%', ?1, '%')", nativeQuery = true)
+    List<BookEntity> findByAuthorLastName(String lastName);
+
+    @Query(value = "SELECT * FROM example_jsonb.books b WHERE b.author->>'firstName' ILIKE CONCAT('%', ?1, '%') AND  b.author->>'lastName' ILIKE CONCAT('%', ?2, '%')", nativeQuery = true)
+    List<BookEntity> findByAuthorFirstNameAndLastName(String firstName,
+            String lastName);
+}
+```
+
+以上这个是针对jsonb的查询操作，和mysql是很不一样的，所以要使用@Query，也不清楚有没有更方便的方法，至少是能用。
+
+之前也试过查询数据库中定义的枚举，但失败了，一直也没再试试。
 
