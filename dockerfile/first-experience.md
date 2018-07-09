@@ -1,7 +1,3 @@
----
-description: 一个简单的应用
----
-
 # First Experience
 
 ```text
