@@ -365,6 +365,46 @@ public class Component extends BaseEntity {
 }
 ```
 
+```java
+import cn.videon.diconde.common.constant.GeneralConstants;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+/**
+ * @Author : ZhenYang
+ * @Despriction : 几何结构
+ * @Date: Created in 2018/6/25 14:05
+ * @Modify By:
+ */
+//@Entity
+//@Table(name = "geometry", schema = GeneralConstants.ledgerSchema)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class NDEGeometry{
+
+    //直径
+    private Double diameter;
+
+    //厚度
+    private Double thickness;
+
+    //曲率类型
+//    @Column(name = "curvature_type")
+    private String curvatureType;
+
+    //形状概述
+//    @Column(name = "shape_desc")
+    private String shapeDesc;
+
+}
+```
+
 我拿出来一个相对典型的实体来看看
 
 1. 使用@TypeDefs声明JsonBType并指定具体的model。
