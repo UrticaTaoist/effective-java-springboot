@@ -1,5 +1,5 @@
 ---
-description: 集成Docker的一些应用
+description: 将应用程序运行在docker容器中
 ---
 
 # Dockerfile

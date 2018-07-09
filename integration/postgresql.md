@@ -1,7 +1,3 @@
----
-description: PostgreSQL集成方法
----
-
 # PostgreSQL
 
 PostgreSQL的话主要还是整理一下使用方法吧，毕竟我现在也只会使用。

@@ -8,20 +8,23 @@ description: Web开发
 
 > 区块引用？？ 不知道有什么不同，总之很厉害的样子
 >
-> > > >这东西不好用啊{% xxx page-ref page="../dockerfile/" %}防潮垫三
->
-> > 嵌套引用。
-> >{% page-ref page="../dockerfile/" %}
+> > > > 这东西不好用啊
+> > > >
+> > > > 防潮垫三
+> >
+> > [嵌套引用。](https://effective-java.gitbook.io/springboot/dockerfile)
+> >
+> > {% page-ref page="../dockerfile/" %}
+> >
 > > > 第三层你没看错
 >
-> [第九十九章](#anchor)
->
+> [第九十九章](./#anchor)
 >
 > > 为什么
 > >
 > > > ## 这不科学,空行之后就科学了
 
-[第九十九章](#anchor)
+[第九十九章](./#anchor)
 
 1. Bird
 2. McHale
@@ -35,19 +38,18 @@ description: Web开发
 10. Bird
 11. McHale
 12. Parish
+13. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 
-* Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
 
-  Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
 
-  viverra nec, fringilla in, laoreet vitae, risus.
+14. Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.
+15. This is a list item with two paragraphs. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 
-* Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.
-* This is a list item with two paragraphs. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
 
-  Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-
-* Suspendisse id sem consectetuer libero luctus adipiscing.
+16. Suspendisse id sem consectetuer libero luctus adipiscing.
 
 这是一个普通段落：
 
@@ -94,15 +96,9 @@ _强调_
 
 [luutqf@163.com](mailto:luutqf@163.com)
 
-
-
 {% tabs %}
 {% tab title="第一页" %}
 长电
-{% endtab %}
-
-{% tab title="第二页" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -145,7 +141,7 @@ id信息
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 
 ```
 {% endapi-method-response-example %}
@@ -159,8 +155,6 @@ id信息
 >
 > 回到第一层
 
-<span id="anchor"/>
-
 | header01 | header02 | column |
 | --- | --- | --- | --- | --- |
 | 三点萨芬 | asdf | fghj |
@@ -173,3 +167,4 @@ id信息
 {% page-ref page="../dockerfile/" %}
 
 ![](../.gitbook/assets/198109742591463b0b7396936.jpg)
+
