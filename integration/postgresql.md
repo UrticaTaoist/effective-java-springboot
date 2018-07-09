@@ -11,6 +11,25 @@ PostgreSQL的使用方法与MySQL类似，  但更全面，实现了[SQL-2/SQL-9
 
 咱使用pg当然不会只把他当做MySQL来用，而我用它的目的就是jsonb。
 
+0. 导入有用的包
+
+```markup
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+</dependency>
+```
+
 ### 1.基本配置
 
 ```yaml
@@ -39,7 +58,7 @@ ps： use\_jdbc\_metadata\_defaults这个配置很重要，可以解决SpringBoo
 
 以上的配置与MySQL没什么差别，需要注意是方言的指定，我写的这个需要自己配置方言类：
 
-```text
+```java
 import org.hibernate.dialect.PostgreSQL94Dialect;
 import org.hibernate.dialect.PostgreSQL95Dialect;
 import org.hibernate.type.StringType;
@@ -66,7 +85,7 @@ public class JsonbPostgresDialect extends PostgreSQL95Dialect {
 
 ### 3.配置jsonb类型
 
-```text
+```java
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hibernate.HibernateException;
@@ -302,7 +321,7 @@ public class ListString2JsonConverter implements AttributeConverter<List<String>
 
 
 
-```text
+```java
 import cn.videon.diconde.common.constant.GeneralConstants;
 import cn.videon.diconde.ledger.dialect.JsonbType;
 import lombok.AllArgsConstructor;
@@ -354,7 +373,7 @@ public class Component extends BaseEntity {
 
 ### 6.list在实体类中的应用
 
-```text
+```java
 @Convert(converter = ListString2JsonConverter.class)
 private List<String> cite;
 ```
@@ -365,7 +384,7 @@ private List<String> cite;
 
 刚才说自行搜索是因为这个项目里没写这些，但想了想还是找一下吧，当做记录了，随便找来一个充个数。
 
-```text
+```java
 public interface BookRepository extends JpaRepository<BookEntity, UUID> {
 
     @Query("SELECT DISTINCT b.publisher FROM BookEntity b WHERE UPPER(b.publisher) LIKE UPPER(CONCAT('%', ?1, '%'))")
