@@ -13,8 +13,8 @@ public String singleFileUpload(@RequestParam("file") MultipartFile file)
 spring:
   servlet:
     multipart:
-      max-file-size: 1000M
-      max-request-size: 1000M
+      max-file-size: 1000
+      max-request-size: 1000
 ```
 
 

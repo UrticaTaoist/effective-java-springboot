@@ -24,6 +24,11 @@ PostgreSQL的使用方法与MySQL类似，  但更全面，实现了[SQL-2/SQL-9
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
 </dependency>
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid</artifactId>
+    <version>1.1.0</version>
+</dependency>
 ```
 
 ### 1.基本配置
