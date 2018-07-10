@@ -4,10 +4,10 @@ description: 下载
 
 # Download
 
-下载的话有几种方法，下面这个转自[博客](https://blog.csdn.net/zknxx/article/details/72633444)，经测好使。 具体细节先不做解释，核心方法应该就是flushBuffer，再说吧，先拿来用。
+下载的话有几种方法，下面这个，经测好使。 具体细节先不做解释，核心方法应该就是flushBuffer，再说吧，先拿来用。
 
 ```java
-    @RequestMapping("downloadFileAction")
+    @RequestMapping("download")
     public void downloadFileAction(HttpServletRequest request, HttpServletResponse response) {
 
         response.setCharacterEncoding(request.getCharacterEncoding());
@@ -38,7 +38,7 @@ description: 下载
 下面是第二种方法，这是我自己测试从ftp上下载文件时测试的，也是从某博客上粘的，但已无从考证，原理依旧不解释，等我熟悉了再说。。。
 
 ```java
-    @GetMapping("downloadTest")
+    @GetMapping("download")
     public ResponseEntity<InputStreamResource> downloadTest() throws Exception {
         File file = new File("C:\\Users\\carry\\Pictures\\zhizi.jpg");
         InputStream inputStream = new FileInputStream(file);
