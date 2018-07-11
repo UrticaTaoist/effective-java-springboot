@@ -13,7 +13,7 @@
 
 主要就是以下的依赖，其他的就是jpa什么的
 
-```text
+```markup
 <dependency>
    <groupId>org.postgresql</groupId>
    <artifactId>postgresql</artifactId>
@@ -27,14 +27,14 @@
 
 yml文件数据源的配置和mysql差不多，区别如下，第一条指定方言，第二条兼容SpringBoot2.X
 
-```text
+```yaml
 database-platform: cn.luutqf.springboot.dialect.JsonbPostgresDialect
 use_jdbc_metadata_defaults: false
 ```
 
 JsonbPostgresDialect类主要就是下面这条，添加jsonb类型：
 
-```text
+```java
 registerColumnType(Types.JAVA_OBJECT, "jsonb");
 ```
 
