@@ -7,7 +7,7 @@ PostgreSQL的使用方法与MySQL类似，  但更全面，实现了[SQL-2/SQL-9
 
 咱使用pg当然不会只把他当做MySQL来用，而我用它的目的就是jsonb。
 
-0. 导入有用的包
+0. 导入依赖
 
 ```markup
 <dependency>
